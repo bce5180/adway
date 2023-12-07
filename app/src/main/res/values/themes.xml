@@ -14,6 +14,10 @@
 
     <!-- Theme that inherits from Base.Theme.Adway_project -->
     <style name="Theme.Adway_project" parent="Base.Theme.Adway_project" />
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize40Percent" parent="">
+        <item name="cornerSize">40%</item>
+    </style>
 </resources>
 
 

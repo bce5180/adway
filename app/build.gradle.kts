@@ -53,5 +53,6 @@ dependencies {
 
     implementation("androidx.recyclerview:recyclerview:1.1.0")
 
+    implementation ("androidx.fragment:fragment-ktx:1.3.0")
     implementation("androidx.core:core-splashscreen:1.0.1")
 }

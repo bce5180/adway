@@ -3,6 +3,8 @@ package com.example.adway_project
 import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
+import android.provider.Settings.Global.putString
+import android.util.Log
 import android.util.TypedValue
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,11 +17,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
 class DetailFragment : Fragment() {
+
 
     private var imageResId: Int = 0
     private var text: String = ""
@@ -149,6 +154,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 15,000명"
                 detail_text_3.text = "승강장 파노라마 미디어 플랫폼"
                 detail_text_price.text = "3000"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "왕십리역" -> {
                 detail_text_1.text = "[2호선]"
@@ -156,6 +163,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 3,000명"
                 detail_text_3.text = "조명와이드컬러"
                 detail_text_price.text = "400"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "건대입구역" -> {
                 detail_text_1.text = "[2호선]"
@@ -163,6 +172,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 8,000명"
                 detail_text_3.text = "조명와이드컬러"
                 detail_text_price.text = "400"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "잠실역" -> {
                 detail_text_1.text = "[2호선]"
@@ -170,6 +181,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 15,000명"
                 detail_text_3.text = "조명와이드컬러"
                 detail_text_price.text = "400"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "사당역" -> {
                 detail_text_1.text = "[2호선]"
@@ -177,6 +190,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 9,000명"
                 detail_text_3.text = "스크린도어"
                 detail_text_price.text = "1500"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "종합운동장역" -> {
                 detail_text_1.text = "[2호선]"
@@ -184,6 +199,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 3,000명"
                 detail_text_3.text = "벽면, 기둥래핑"
                 detail_text_price.text = "200"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "신도림역" -> {
                 detail_text_1.text = "[2호선]"
@@ -191,6 +208,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 9,000명"
                 detail_text_3.text = "스크린도어"
                 detail_text_price.text = "500"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "합정역" -> {
                 detail_text_1.text = "[2호선]"
@@ -198,6 +217,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 7.000명"
                 detail_text_3.text = "포스터"
                 detail_text_price.text = "30"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "홍대입구역" -> {
                 detail_text_1.text = "[2호선]"
@@ -205,6 +226,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 14,000명"
                 detail_text_3.text = "디지털포스터"
                 detail_text_price.text = "400"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
 
             ///////  4호선  ///////
@@ -214,6 +237,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 2,000명"
                 detail_text_3.text = "와이드칼라"
                 detail_text_price.text = "600"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "혜화역" -> {
                 detail_text_1.text = "[4호선]"
@@ -221,6 +246,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 3,500명"
                 detail_text_3.text = "와이드칼라"
                 detail_text_price.text = "600"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "명동역" -> {
                 detail_text_1.text = "[4호선]"
@@ -228,6 +255,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 3,300명"
                 detail_text_3.text = "와이드칼라"
                 detail_text_price.text = "600"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "서울역" -> {
                 detail_text_1.text = "[4호선]"
@@ -235,6 +264,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 1,500명"
                 detail_text_3.text = "스크린도어"
                 detail_text_price.text = "300"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "충무로역" -> {
                 detail_text_1.text = "[4호선]"
@@ -242,6 +273,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 2,700명"
                 detail_text_3.text = "스크린도어"
                 detail_text_price.text = "300"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "동대문역" -> {
                 detail_text_1.text = "[4호선]"
@@ -249,6 +282,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 2,000명"
                 detail_text_3.text = "와이드칼라"
                 detail_text_price.text = "450"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "미아사거리역" -> {
                 detail_text_1.text = "[4호선]"
@@ -256,6 +291,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 2,400명"
                 detail_text_3.text = "스크린도어"
                 detail_text_price.text = "300"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "성신여대입구역" -> {
                 detail_text_1.text = "[4호선]"
@@ -263,6 +300,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 2,000명"
                 detail_text_3.text = "디지털포스터"
                 detail_text_price.text = "200"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "총신대입구역" -> {
                 detail_text_1.text = "[4호선]"
@@ -270,6 +309,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 1,700명"
                 detail_text_3.text = "스크린도어"
                 detail_text_price.text = "300"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
 
             ///////  5호선  ///////
@@ -279,6 +320,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 7,000명"
                 detail_text_3.text = "와이드칼라"
                 detail_text_price.text = "300"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "동대문역사문화공원역" -> {
                 detail_text_1.text = "[5호선]"
@@ -288,6 +331,8 @@ class DetailFragment : Fragment() {
                 detail_text_3.text = "스크린도어"
                 detail_text_price.text = "800"
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20f);
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "천호역" -> {
                 detail_text_1.text = "[5호선]"
@@ -295,6 +340,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 3,600명"
                 detail_text_3.text = "와이드칼라"
                 detail_text_price.text = "300"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "종로3가역" -> {
                 detail_text_1.text = "[5호선]"
@@ -302,6 +349,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 3,200명"
                 detail_text_3.text = "스크린도어"
                 detail_text_price.text = "600"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "마포역" -> {
                 detail_text_1.text = "[5호선]"
@@ -309,6 +358,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 3,300명"
                 detail_text_3.text = "지하철 편성 광고(독점)"
                 detail_text_price.text = "500"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "행당역" -> {
                 detail_text_1.text = "[5호선]"
@@ -316,6 +367,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 1,700명"
                 detail_text_3.text = "지하철 편성 광고(독점)"
                 detail_text_price.text = "500"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
             "아차산역" -> {
                 detail_text_1.text = "[5호선]"
@@ -323,6 +376,8 @@ class DetailFragment : Fragment() {
                 detail_text_2.text = "약 2,800명"
                 detail_text_3.text = "포스터 광고"
                 detail_text_price.text = "40"
+
+                setFragmentResult("resultStation", bundleOf("resultStation" to text))
             }
 
             else -> {
