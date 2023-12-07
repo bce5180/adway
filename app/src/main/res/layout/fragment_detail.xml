@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/detail_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="역이름"
+                android:textSize="30dp"
+                android:fontFamily="@font/giantsinline"
+                android:padding="10dp"/>
+            <TextView
+                android:id="@+id/detail_text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2호선]"
+                android:textSize="15dp"
+                android:padding="10dp"/>
+            <TextView
+                android:id="@+id/detail_text_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="유동인구: n명"
+                android:textSize="15dp"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:scaleType="centerCrop"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/detail_text_3"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:text="정보 입력란"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/detail_text_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="20dp"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="만원/월"
+                android:textSize="15dp"
+                android:padding="10dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#CCCCCC"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="금액 계산하기"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/sebanggothicbold">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <EditText
+                android:id="@+id/editTextMonth"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="개월"
+                android:textSize="20dp"
+                android:gravity="bottom">
+            </TextView>
+            <Button
+                android:id="@+id/buttonCalculate"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="계산"
+                android:layout_marginLeft="30dp"
+                android:background="@color/gray"
+                android:gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예상 금액: "
+                android:textSize="20dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/textViewAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/important_word"
+                android:textSize="20dp"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="만원"
+                android:textSize="20dp">
+            </TextView>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#CCCCCC"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="예약하기"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/sebanggothicbold">
+        </TextView>
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </CalendarView>
+
+
+        <Button
+            android:id="@+id/reserveButton"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="예약"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/gray">
+        </Button>
+
+    </LinearLayout>
+
+</ScrollView>
