@@ -32,8 +32,36 @@ class HomeFragment : Fragment() {
 
         // RecyclerView 어댑터 설정
         val adapter = RecommendationAdapter(object : RecommendationAdapter.OnItemClickListener {
-            override fun onItemClick(item: RecommendationItem) {
-                val detailFragment = DetailFragment.newInstance(item.imageResId, item.text)
+            override fun onItemClick(position: Int, item: RecommendationItem) {
+                val detailFragment = when (position) {
+                    0 -> DetailFragment.newInstance(R.drawable.image01, "강남역")
+                    1 -> DetailFragment.newInstance(R.drawable.image10, "노원역")
+                    2 -> DetailFragment.newInstance(R.drawable.image23, "마포역")
+                    3 -> DetailFragment.newInstance(R.drawable.image02, "왕십리역")
+                    4 -> DetailFragment.newInstance(R.drawable.image11, "혜화역")
+                    5 -> DetailFragment.newInstance(R.drawable.image24, "행당역")
+                    6 -> DetailFragment.newInstance(R.drawable.image03, "건대입구역")
+                    7 -> DetailFragment.newInstance(R.drawable.image12, "명동역")
+                    8 -> DetailFragment.newInstance(R.drawable.image25, "아차산역")
+                    9 -> DetailFragment.newInstance(R.drawable.image04, "잠실역")
+                    10 -> DetailFragment.newInstance(R.drawable.image13, "서울역")
+                    11 -> DetailFragment.newInstance(R.drawable.image19, "여의도역")
+                    12 -> DetailFragment.newInstance(R.drawable.image05, "사당역")
+                    13 -> DetailFragment.newInstance(R.drawable.image14, "충무로역")
+                    14 -> DetailFragment.newInstance(R.drawable.image20, "동대문역사문화공원역")
+                    15 -> DetailFragment.newInstance(R.drawable.image06, "종합운동장역")
+                    16 -> DetailFragment.newInstance(R.drawable.image15, "동대문역")
+                    17 -> DetailFragment.newInstance(R.drawable.image21, "천호역")
+                    18 -> DetailFragment.newInstance(R.drawable.image07, "신도림역")
+                    19 -> DetailFragment.newInstance(R.drawable.image16, "미아사거리역")
+                    20 -> DetailFragment.newInstance(R.drawable.image22, "종로3가역")
+                    21 -> DetailFragment.newInstance(R.drawable.image09, "홍대입구역")
+                    22 -> DetailFragment.newInstance(R.drawable.image18, "총신대입구역")
+                    23 -> DetailFragment.newInstance(R.drawable.image08, "합정역")
+                    24 -> DetailFragment.newInstance(R.drawable.image17, "성신여대입구역")
+                    else -> DetailFragment.newInstance(R.drawable.image01, "강남역")
+
+                }
                 requireActivity().supportFragmentManager.beginTransaction().apply {
                     replace(R.id.fragment_container, detailFragment)
                     addToBackStack(null)
@@ -94,7 +122,7 @@ data class RecommendationItem(val text: String, val imageResId: Int)
 class RecommendationAdapter(private val listener: OnItemClickListener) : ListAdapter<RecommendationItem, RecommendationAdapter.ViewHolder>(RecommendationItemDiffCallback()) {
 
     interface OnItemClickListener {
-        fun onItemClick(item: RecommendationItem)
+        fun onItemClick(position: Int, item: RecommendationItem)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -104,20 +132,22 @@ class RecommendationAdapter(private val listener: OnItemClickListener) : ListAda
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(item, position, listener)
     }
 
 
     class ViewHolder(itemView: View, val listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
+
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
         private val textView: TextView = itemView.findViewById(R.id.textView)
 
-        fun bind(item: RecommendationItem) {
+        fun bind(item: RecommendationItem, position: Int, listener: OnItemClickListener) {
+
             imageView.setImageResource(item.imageResId)
             textView.text = item.text
 
             itemView.setOnClickListener {
-                listener.onItemClick(item)
+                listener.onItemClick(position, item)
             }
         }
     }
