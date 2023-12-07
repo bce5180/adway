@@ -24,13 +24,13 @@ class MyPageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val name = requireActivity().intent.getStringExtra("name")
         val id = requireActivity().intent.getStringExtra("id")
-        val name = requireActivity().intent.getStringExtra("mbti")
-        val num = requireActivity().intent.getStringExtra("nickname")
+        val num = requireActivity().intent.getStringExtra("num")
 
         with(binding) {
-            tvYourId.text = id
             tvName.text = name
+            tvYourId.text = id
             tvYourNum.text = num
         }
     }

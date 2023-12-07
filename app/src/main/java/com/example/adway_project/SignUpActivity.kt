@@ -34,8 +34,8 @@ class SignUpActivity : AppCompatActivity() {
                 val intent = Intent(this, LoginActivity::class.java)
                 intent.putExtra("id", binding.etSignUpId.text.toString())
                     .putExtra("pw", binding.etSignUpPw.text.toString())
-                    .putExtra("nickname", binding.etSignUpName.text.toString())
-                    .putExtra("mbti", binding.etSignUpNum.text.toString())
+                    .putExtra("name", binding.etSignUpName.text.toString())
+                    .putExtra("num", binding.etSignUpNum.text.toString())
 
                 setResult(RESULT_OK, intent)
                 Toast.makeText(this, "회원가입에 성공했습니다.", Toast.LENGTH_SHORT).show()
