@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +46,16 @@ class MainActivity : AppCompatActivity() {
             val designFragment = DesignFragment()
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment_container, designFragment) // fragment_container는 DesignFragment를 표시할 레이아웃의 ID
+                addToBackStack(null) // 뒤로 가기 스택에 추가 (선택사항)
+                commit()
+            }
+        }
+
+        val mypageButton: ImageButton = findViewById(R.id.buttonMypage)
+        mypageButton.setOnClickListener {
+            val mypageFragment = MyPageFragment()
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragment_container, mypageFragment) // fragment_container는 DesignFragment를 표시할 레이아웃의 ID
                 addToBackStack(null) // 뒤로 가기 스택에 추가 (선택사항)
                 commit()
             }
