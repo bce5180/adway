@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 class HomeFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +31,16 @@ class HomeFragment : Fragment() {
 
 
         // RecyclerView 어댑터 설정
-        val adapter = RecommendationAdapter()
+        val adapter = RecommendationAdapter(object : RecommendationAdapter.OnItemClickListener {
+            override fun onItemClick(item: RecommendationItem) {
+                val detailFragment = DetailFragment.newInstance(item.imageResId, item.text)
+                requireActivity().supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment_container, detailFragment)
+                    addToBackStack(null)
+                    commit()
+                }
+            }
+        })
         recyclerView.adapter = adapter
 
 
@@ -74,17 +83,23 @@ class HomeFragment : Fragment() {
         }
         adapter.submitList(data)
         return view
+
+
     }
 }
 
 
 data class RecommendationItem(val text: String, val imageResId: Int)
 
-class RecommendationAdapter : ListAdapter<RecommendationItem, RecommendationAdapter.ViewHolder>(RecommendationItemDiffCallback()) {
+class RecommendationAdapter(private val listener: OnItemClickListener) : ListAdapter<RecommendationItem, RecommendationAdapter.ViewHolder>(RecommendationItemDiffCallback()) {
+
+    interface OnItemClickListener {
+        fun onItemClick(item: RecommendationItem)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_icon, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, listener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -92,13 +107,18 @@ class RecommendationAdapter : ListAdapter<RecommendationItem, RecommendationAdap
         holder.bind(item)
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+    class ViewHolder(itemView: View, val listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
         private val textView: TextView = itemView.findViewById(R.id.textView)
 
         fun bind(item: RecommendationItem) {
             imageView.setImageResource(item.imageResId)
             textView.text = item.text
+
+            itemView.setOnClickListener {
+                listener.onItemClick(item)
+            }
         }
     }
 }
