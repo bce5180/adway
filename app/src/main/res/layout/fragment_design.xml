@@ -256,7 +256,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="70dp"
         android:fontFamily="@font/sebanggothicbold"
         android:textSize="16dp"
         android:text="로고를 클릭하면 웹사이트로 바로 연결됩니다" />

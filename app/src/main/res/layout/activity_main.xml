@@ -52,7 +52,7 @@
 
         <Button
             android:id="@+id/buttonDesign"
-            android:layout_width="173dp"
+            android:layout_width="190dp"
             android:layout_height="60dp"
             android:backgroundTint="#124AFF"
             android:text="디자인"
