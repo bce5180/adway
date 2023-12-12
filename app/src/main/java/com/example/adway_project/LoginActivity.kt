@@ -8,6 +8,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.adway_project.Extensions.hideKeyboard
 import com.example.adway_project.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -36,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.root.setOnClickListener {
-            hideKeyboard()
+            hideKeyboard(binding.root)
         }
     }
 
@@ -71,18 +72,6 @@ class LoginActivity : AppCompatActivity() {
                 name = result.data?.getStringExtra("name") ?: ""
                 num = result.data?.getStringExtra("num") ?: ""
             }
-        }
-    }
-
-    private fun hideKeyboard() {
-        if (this != null && this.currentFocus != null) {
-            val inputManager: InputMethodManager = this.getSystemService(
-                Context.INPUT_METHOD_SERVICE
-            ) as InputMethodManager
-            inputManager.hideSoftInputFromWindow(
-                this.currentFocus?.windowToken,
-                InputMethodManager.HIDE_NOT_ALWAYS
-            )
         }
     }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.adway_project.Extensions.hideKeyboard
 import com.example.adway_project.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
@@ -21,7 +22,7 @@ class SignUpActivity : AppCompatActivity() {
         signUp()
 
         binding.root.setOnClickListener {
-            hideKeyboard()
+            hideKeyboard(binding.root)
         }
 
     }
@@ -44,18 +45,6 @@ class SignUpActivity : AppCompatActivity() {
 
             } else
                 Toast.makeText(this, "회원가입에 실패했습니다.", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun hideKeyboard() {
-        if (this != null && this.currentFocus != null) {
-            val inputManager: InputMethodManager = this.getSystemService(
-                Context.INPUT_METHOD_SERVICE
-            ) as InputMethodManager
-            inputManager.hideSoftInputFromWindow(
-                this.currentFocus?.windowToken,
-                InputMethodManager.HIDE_NOT_ALWAYS
-            )
         }
     }
 }
